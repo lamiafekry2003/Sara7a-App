@@ -1,0 +1,2 @@
+::1 - - [06/Sep/2025:11:56:50 +0000] "GET /api/user/getSingleUser HTTP/1.1" 200 1778 "-" "PostmanRuntime/7.45.0"
+::1 - - [06/Sep/2025:12:59:47 +0000] "GET /api/user/getSingleUser HTTP/1.1" 200 1778 "-" "PostmanRuntime/7.45.0"
