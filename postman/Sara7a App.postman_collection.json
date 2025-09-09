@@ -1,0 +1,716 @@
+{
+	"info": {
+		"_postman_id": "4a8a7745-62d4-457f-9907-37b3f01e5128",
+		"name": "Sara7a App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32754718"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sign up",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODgxNzI1YmI4ZmY3ZDk1YmRjNjI0ZWYiLCJpYXQiOjE3NTMzNDA0NzEsImV4cCI6MTc1MzM0NDA3MX0.WnTtiI6RmzUQ_dZjjaGg9LwXObU7CrUu8nwds2oibqc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"ahmed\",\r\n    \"lastName\":\"fekry\",\r\n    \"email\":\"ahmed.f@gmail.com\",\r\n    \"password\":\"1234567\",\r\n    \"phoneNumber\":\"011409390\",\r\n    \"gender\":\"female\",\r\n    \"role\":\"USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cloud}}/api/auth/signUp",
+							"host": [
+								"{{cloud}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signUp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODgxNzI1YmI4ZmY3ZDk1YmRjNjI0ZWYiLCJpYXQiOjE3NTMzNDA0NzEsImV4cCI6MTc1MzM0NDA3MX0.WnTtiI6RmzUQ_dZjjaGg9LwXObU7CrUu8nwds2oibqc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"ahmed.f@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cloud}}/api/auth/login",
+							"host": [
+								"{{cloud}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login with gmail",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODgxNzI1YmI4ZmY3ZDk1YmRjNjI0ZWYiLCJpYXQiOjE3NTMzNDA0NzEsImV4cCI6MTc1MzM0NDA3MX0.WnTtiI6RmzUQ_dZjjaGg9LwXObU7CrUu8nwds2oibqc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idToken\":\"eyJhbGciOiJSUzI1NiIsImtpZCI6Ijk4ZGM1NWM4YjIwOTM2M2EyNDUxNzc0YmNlNWM0MjcxOGQxM2NiN2QiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI5MDI2Mzc0NDI4MDQtYzllZ2pmY211ZnVwaGtwMTg0ZzFvMWNscXVjbXV0NnAuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI5MDI2Mzc0NDI4MDQtYzllZ2pmY211ZnVwaGtwMTg0ZzFvMWNscXVjbXV0NnAuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTI1NTM1NzM2NDcwMzM3MTkwODUiLCJlbWFpbCI6ImxhbWlhLmZla3J5MjAwM0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzU1MTI1MjYzLCJuYW1lIjoiTGFtaWEgRmVrcnkiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTC1ZZzVpN0hOb0gxOG5qUlFIV280N1VOTkNrRXhLbGh2bndYTUdrS2RfemFXSy13PXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IkxhbWlhIiwiZmFtaWx5X25hbWUiOiJGZWtyeSIsImlhdCI6MTc1NTEyNTU2MywiZXhwIjoxNzU1MTI5MTYzLCJqdGkiOiI3M2RlM2VkOWZkMTc4YzQxOTIzMjBlYjQ1YmU3NmJjMGFiNjYzNTBlIn0.YZBNxwKhj_opuWLDMNHugEhyxB29KFz8xBQDHHjVSHM4eOXUFKtncZJ-A2cbR0_Irp8Gi9g4ccdZ1qjdD3FUOcXm2KWO2FtinZ25hWMnlkchZNkQWcGusJl0yx-hYJipaORI6zX-8fAbh0pEbBN2jFUVfaNFz2bZOrQ6e28XK-LdUtYf5w_1TSwysJLb2-o7ZcQsYEpjdmXHV5sXnSC03cxKyFbabF17UMEVKQ0pLQu2jCWYklNWrdW-Ey9FGqiMFOKLRdWJM7w31MimKcM9BkEk_o3nTyeI2YQ6TCzSMApBD-EJZZK_XEb5xy4MMLKj9awFFsBoBOv-JrjwvCtu5w\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cloud}}/api/auth/loginWithGmail",
+							"host": [
+								"{{cloud}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"loginWithGmail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "User eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGE1NmJjNDM2OWUzNjNmZGQ1NmQ2ZTYiLCJlbWFpbCI6ImFtbEBnbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJhbWwiLCJsYXN0TmFtZSI6ImFiZGFsbGFoIiwiaWF0IjoxNzU1NjcxOTM2LCJleHAiOjE3NTYyNzY3MzYsImlzcyI6IlNhcmE3YSBBcHAiLCJzdWIiOiJBdXRoZW50aWNhdGlvbiJ9.KUGQsDVlUvtS51HX3cQgjSQnWs5LYBhnqy-_u1ExgFo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/auth/refresh-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm-email",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODgxNzI1YmI4ZmY3ZDk1YmRjNjI0ZWYiLCJpYXQiOjE3NTMzNDA0NzEsImV4cCI6MTc1MzM0NDA3MX0.WnTtiI6RmzUQ_dZjjaGg9LwXObU7CrUu8nwds2oibqc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"email\":\"ahmed.f@gmail.com\",\r\n    \"otp\":\"174640\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cloud}}/api/auth/confirm-email",
+							"host": [
+								"{{cloud}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"confirm-email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "User eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGFiZTY4NTQ4MDFiODdlMTY5NjExYTkiLCJlbWFpbCI6ImxhbWlhLmYyMDAzQGdtYWlsLmNvbSIsImZpcnN0TmFtZSI6ImxhbWlhIiwibGFzdE5hbWUiOiJmZWtyeSIsImlhdCI6MTc1NjEyMTI3MywiZXhwIjoxNzU2MjA3NjczLCJpc3MiOiJTYXJhN2EgQXBwIiwic3ViIjoiQXV0aGVudGljYXRpb24iLCJqdGkiOiI1RjJxMHpKRE1uYlNMVEY5aDlJTm8ifQ.vPjUr3WKBw5uNfdk8ly6iocjRR5fRLEPDgke1we1T6Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get single user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "User eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGI3MGUxYWViYTI5ODY2MjNkOTUyY2EiLCJlbWFpbCI6ImxhbWlhLmYyMDAzQGdtYWlsLmNvbSIsImZpcnN0TmFtZSI6ImxhbWlhIiwibGFzdE5hbWUiOiJmZWtyeSIsImlhdCI6MTc1NzE1NDk0NSwiZXhwIjoxNzU3MjQxMzQ1LCJpc3MiOiJTYXJhN2EgQXBwIiwic3ViIjoiQXV0aGVudGljYXRpb24iLCJqdGkiOiI3QjI0QXJjN0xEcDBjdXNrRkFjNEgifQ.r6XRO7BnlEyK5qOFCWNYncp7WGU89OGsOaoeOLS5ChE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/user/getSingleUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"getSingleUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "shareProfile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "User eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGJmMmEzNWYwYzdlNDk0MDZkYTFmOWUiLCJlbWFpbCI6ImFobWVkLmZAZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiYWhtZWQiLCJsYXN0TmFtZSI6ImZla3J5IiwiaWF0IjoxNzU3MzU4ODEwLCJleHAiOjE3NTc0NDUyMTAsImlzcyI6IlNhcmE3YSBBcHAiLCJzdWIiOiJBdXRoZW50aWNhdGlvbiIsImp0aSI6Ik1aMVQxVjZvYjNRZmtVWmZBMDdqOCJ9.SuCgjdLIUQ-0KPwbLsk95RWK95yUc0wWLwXovC6un9o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{cloud}}/api/user/share-profile/68bf2a35f0c7e49406da1f9e",
+							"host": [
+								"{{cloud}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"share-profile",
+								"68bf2a35f0c7e49406da1f9e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update profile",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "User eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGJmMmEzNWYwYzdlNDk0MDZkYTFmOWUiLCJlbWFpbCI6ImFobWVkLmZAZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiYWhtZWQiLCJsYXN0TmFtZSI6ImZla3J5IiwiaWF0IjoxNzU3MzU4ODEwLCJleHAiOjE3NTc0NDUyMTAsImlzcyI6IlNhcmE3YSBBcHAiLCJzdWIiOiJBdXRoZW50aWNhdGlvbiIsImp0aSI6Ik1aMVQxVjZvYjNRZmtVWmZBMDdqOCJ9.SuCgjdLIUQ-0KPwbLsk95RWK95yUc0wWLwXovC6un9o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"ahmed\",\r\n    \"lastName\":\"fekry\",\r\n    \"phoneNumber\":\"0152398\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cloud}}/api/user/update-user",
+							"host": [
+								"{{cloud}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"update-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Freeze account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGE1YTU0Njg2ZjFhOTdkNTJjNTE0MTQiLCJlbWFpbCI6ImFobWVkQGdtYWlsLmNvbSIsImZpcnN0TmFtZSI6ImFobWVkIiwibGFzdE5hbWUiOiJmZWtyeSIsImlhdCI6MTc1NTcwMTE0OCwiaXNzIjoiU2FyYTdhIEFwcCIsInN1YiI6IkF1dGhlbnRpY2F0aW9uIn0.9PCT8fdCgYH6iK-LBBL2rJ7MZlLC4cACGWVYxsNfOtE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/user/68a56bc4369e363fdd56d6e6/freeze-account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"68a56bc4369e363fdd56d6e6",
+								"freeze-account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore account(Admin)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGE1YTU0Njg2ZjFhOTdkNTJjNTE0MTQiLCJlbWFpbCI6ImFobWVkQGdtYWlsLmNvbSIsImZpcnN0TmFtZSI6ImFobWVkIiwibGFzdE5hbWUiOiJmZWtyeSIsImlhdCI6MTc1NTY5MDAwMSwiaXNzIjoiU2FyYTdhIEFwcCIsInN1YiI6IkF1dGhlbnRpY2F0aW9uIn0.ZeFTde0cMfBhOvOG7UCLc96QigJEpeVk-bUYf6mWXaM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{cloud}}/api/user/68a56bc4369e363fdd56d6e6/restore-account-Admin",
+							"host": [
+								"{{cloud}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"68a56bc4369e363fdd56d6e6",
+								"restore-account-Admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore account(user)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "User eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGEwMzRlNzJhZjgxZWU5NDkwZGE4YzciLCJlbWFpbCI6ImxhbWlhLmZla3J5MjAwM0BnbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJsYW1pYSIsImxhc3ROYW1lIjoiZmVrcnkiLCJpYXQiOjE3NTU2OTE3NTYsImlzcyI6IlNhcmE3YSBBcHAiLCJzdWIiOiJBdXRoZW50aWNhdGlvbiJ9.XzA_ATzk2OuC8C3N0UZiV_LAyQUVz3iT3XNQZn8QCG0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{cloud}}/api/user/restore-account-user",
+							"host": [
+								"{{cloud}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"restore-account-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hard Delete Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGE1YTU0Njg2ZjFhOTdkNTJjNTE0MTQiLCJlbWFpbCI6ImFobWVkQGdtYWlsLmNvbSIsImZpcnN0TmFtZSI6ImFobWVkIiwibGFzdE5hbWUiOiJmZWtyeSIsImlhdCI6MTc1NTcwMTE0OCwiaXNzIjoiU2FyYTdhIEFwcCIsInN1YiI6IkF1dGhlbnRpY2F0aW9uIn0.9PCT8fdCgYH6iK-LBBL2rJ7MZlLC4cACGWVYxsNfOtE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{cloud}}/api/user/68a56bc4369e363fdd56d6e6/hard-deleted",
+							"host": [
+								"{{cloud}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"68a56bc4369e363fdd56d6e6",
+								"hard-deleted"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update password",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "User eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGJmMmEzNWYwYzdlNDk0MDZkYTFmOWUiLCJlbWFpbCI6ImFobWVkLmZAZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiYWhtZWQiLCJsYXN0TmFtZSI6ImZla3J5IiwiaWF0IjoxNzU3MzU4ODEwLCJleHAiOjE3NTc0NDUyMTAsImlzcyI6IlNhcmE3YSBBcHAiLCJzdWIiOiJBdXRoZW50aWNhdGlvbiIsImp0aSI6Ik1aMVQxVjZvYjNRZmtVWmZBMDdqOCJ9.SuCgjdLIUQ-0KPwbLsk95RWK95yUc0wWLwXovC6un9o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"flag\":\"logout\",\r\n    \"oldPassword\":\"1234567\",\r\n    \"password\":\"12345678\",\r\n    \"repeat_password\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cloud}}/api/user/update-password",
+							"host": [
+								"{{cloud}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"update-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forget password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"ahmed.f@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cloud}}/api/user/forget-password",
+							"host": [
+								"{{cloud}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"forget-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"ahmed.f@gmail.com\",\r\n    \"otp\":\"921488\",\r\n    \"password\":\"1234567\",\r\n    \"repeat_password\":\"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cloud}}/api/user/reset-password",
+							"host": [
+								"{{cloud}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update profile image",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "User eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGJmMmEzNWYwYzdlNDk0MDZkYTFmOWUiLCJlbWFpbCI6ImFobWVkLmZAZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiYWhtZWQiLCJsYXN0TmFtZSI6ImZla3J5IiwiaWF0IjoxNzU3MzYxNDQyLCJleHAiOjE3NTc0NDc4NDIsImlzcyI6IlNhcmE3YSBBcHAiLCJzdWIiOiJBdXRoZW50aWNhdGlvbiIsImp0aSI6Ik1hdXhGUGdObXhyMFlaUVNzUENETSJ9.KbyrDgFbJo-AfhDhPEPIhi7R0ZhokZWSp9jDHzbu4mk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profileImage",
+									"type": "file",
+									"src": "/C:/Users/user/Pictures/carss.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{cloud}}/api/user/update-profile-image",
+							"host": [
+								"{{cloud}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"update-profile-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update cover image",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "User eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGJmMmEzNWYwYzdlNDk0MDZkYTFmOWUiLCJlbWFpbCI6ImFobWVkLmZAZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiYWhtZWQiLCJsYXN0TmFtZSI6ImZla3J5IiwiaWF0IjoxNzU3MzYwNDI0LCJleHAiOjE3NTc0NDY4MjQsImlzcyI6IlNhcmE3YSBBcHAiLCJzdWIiOiJBdXRoZW50aWNhdGlvbiIsImp0aSI6IjAtMGQ4Ri0wNTU0VWluM25xQTU5VSJ9.3ArzvBiyQ3hWjVac1A6DlNMN6c_mt3ogdb9mdHr68IU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "coverImage",
+									"type": "file",
+									"src": [
+										"/C:/Users/user/Pictures/book2.PNG",
+										"/C:/Users/user/Pictures/bool.PNG"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{cloud}}/api/user/cover-image",
+							"host": [
+								"{{cloud}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"cover-image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Message",
+			"item": [
+				{
+					"name": "Send message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "attachment",
+									"type": "file",
+									"src": "/C:/Users/user/Pictures/movie.PNG"
+								},
+								{
+									"key": "content",
+									"value": "hello lamia",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{cloud}}/api/message/68b70e1aeba2986623d952ca/send_message",
+							"host": [
+								"{{cloud}}"
+							],
+							"path": [
+								"api",
+								"message",
+								"68b70e1aeba2986623d952ca",
+								"send_message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send message by auth user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "User eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGJiZTE0YmVmNWYzNWVlY2Q1YjRmODAiLCJlbWFpbCI6ImFobWVkLmZAZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiYWhtZWQiLCJsYXN0TmFtZSI6ImZla3J5IiwiaWF0IjoxNzU3MTQzNTI3LCJleHAiOjE3NTcyMjk5MjcsImlzcyI6IlNhcmE3YSBBcHAiLCJzdWIiOiJBdXRoZW50aWNhdGlvbiIsImp0aSI6Ik5Pc1daeFNQQ0laWnRIWEVzWEJOQiJ9.yrpkGXcHc85KLzB3lm50U82ncOG3Nb0LbJyCJkcM5nA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "attachment",
+									"type": "file",
+									"src": "/C:/Users/user/Pictures/one.PNG"
+								},
+								{
+									"key": "content",
+									"value": "hello lamia",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{cloud}}/api/message/68b70e1aeba2986623d952ca/sender",
+							"host": [
+								"{{cloud}}"
+							],
+							"path": [
+								"api",
+								"message",
+								"68b70e1aeba2986623d952ca",
+								"sender"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get message",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{cloud}}/api/message/68b70e1aeba2986623d952ca/get-message",
+							"host": [
+								"{{cloud}}"
+							],
+							"path": [
+								"api",
+								"message",
+								"68b70e1aeba2986623d952ca",
+								"get-message"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local",
+			"value": ""
+		},
+		{
+			"key": "cloud",
+			"value": ""
+		}
+	]
+}
