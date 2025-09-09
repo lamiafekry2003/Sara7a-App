@@ -2,9 +2,9 @@
 This is the backend of a **Sara7a App** application.   It provides APIs for user authentication, authorization, and anonymous message management.Built with **Node.js**, **Express**,**MongoDB**, the backend handles secure user data, token-based authentication,message storage ,and deployment on AWS with PM2 and Nginx.
 
 ----------------------------------------------
-## Features
+## 🚀 Features
 
-- **Authentication**
+- **🔐Authentication**
   - Register (email & Google)
   - Login
   - Change password
@@ -13,14 +13,14 @@ This is the backend of a **Sara7a App** application.   It provides APIs for user
   - Token refresh
   - Role-based access (user & admin)
   - Validation on all requests
-- **User**
+- **👤User**
   - View profile
   - Update profile
   - Freeze/unfreeze account (by user or admin)
   - Delete account
   - Upload profile & cover images (stored in Cloud, backend saves `public_id` & `secure_url`)
   - Share profile
-- **Messages**
+- **💌Messages**
   - Send message (anonymous or authenticated)
   - View messages
 - **Others**
@@ -32,6 +32,26 @@ This is the backend of a **Sara7a App** application.   It provides APIs for user
   - API tested via Postman
 
 --------------------------------------------------------
+
+## 🛠️ Tech Stack
+
+**Backend**: Node.js, Express.js
+
+**Database**: MongoDB Atlas, Mongoose
+
+**Authentication**: JWT, bcryptjs,jsonwebtoken,google-auth-library
+
+**Security**: Helmet, express-rate-limit, Joi validation
+
+**File Storage**: Multer, Cloudinary
+
+**Emailing**: Nodemailer
+
+**Deployment**: AWS EC2, PM2, Nginx
+
+**Utilities**: Chalk, Crypto-js, Nanoid, Morgan,Cors,dotenv
+
+------------------------------------------------------
 
 ## 🚀 Installation & Run
 
