@@ -31,7 +31,7 @@ return `<!DOCTYPE html>
           <p style="font-size:14px; color:#555;">
             Thank you for choosing Sara7a App.
             Use the following OTP to ${subject}.
-            OTP is valid for <b>5 minutes</b>. Do not share this code with others.
+             Do not share this code with others.
           </p>
           <p style="
             margin-top:30px;
