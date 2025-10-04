@@ -1,7 +1,7 @@
 import { rateLimit } from 'express-rate-limit'
 export function limiter(){
     const limiter=rateLimit({
-        windowMs: 15 * 60 * 1000,   //1m
+        windowMs: 15 * 60 * 1000,   //15m
         limit:100,
         message:{
           statusCode:429,

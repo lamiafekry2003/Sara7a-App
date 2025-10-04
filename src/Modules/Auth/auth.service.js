@@ -56,7 +56,7 @@ export const signUp = async (req, res, next) => {
     res,
     statusCode: 201,
     message: "user created successfully",
-    data: user,
+    // data: user,
   });
 };
 export const confirmEmail= async (req,res,next) =>{
@@ -95,13 +95,13 @@ export const login = async (req, res, next) => {
   // check user found or no
   const user = await findOne({ model: userModel, filter: { email } });
   if (!user)
-    return next(new Error("invaild email or password", { cause: 401 }));
+    return next(new Error("invalid email or password", { cause: 401 }));
   // confirm email
   if(!user.confirmEmail)
-    return next(new Error("User not found or invaild email", { cause: 401 }));
+    return next(new Error("User inValid please confirm your email ", { cause: 401 }));
   // compare password with hashing password
   const isMatch = await compare({ plainText: password, hash: user.password });
-  if (!isMatch) return next(new Error("invaild password", { cause: 401 }));
+  if (!isMatch) return next(new Error("invalid password", { cause: 401 }));
   // know role and crete token 
   const newCredential = await getNewTokenCredentials(user)
   
