@@ -97,8 +97,17 @@ export const login = async (req, res, next) => {
   if (!user)
     return next(new Error("invalid email or password", { cause: 401 }));
   // confirm email
-  if(!user.confirmEmail)
-    return next(new Error("User inValid please confirm your email ", { cause: 401 }));
+  // if(!user.confirmEmail)
+  //   return next(new Error("User inValid please confirm your email ", { cause: 401 }));
+  // or another way to from using direct :
+  if (!user.confirmEmail) {
+    return successResponse({
+      res,
+      statusCode: 401,
+      message: "User is invalid, please confirm your email",
+      data: { redirect: true }, 
+    });
+  }
   // compare password with hashing password
   const isMatch = await compare({ plainText: password, hash: user.password });
   if (!isMatch) return next(new Error("invalid password", { cause: 401 }));
