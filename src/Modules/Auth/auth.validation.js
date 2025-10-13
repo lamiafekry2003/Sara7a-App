@@ -24,10 +24,16 @@ export const loginValidation ={
 }
 
 // login with google
-export const socialLogin = Joi.object({
+// export const socialLogin = Joi.object({
+//  idToken:Joi.string().required()
+
+// }).required();
+export const socialLogin = {
+  body:Joi.object({
  idToken:Joi.string().required()
 
-}).required();
+}).required()
+}
 
 // login with confirm email
 export const confirmEmail ={

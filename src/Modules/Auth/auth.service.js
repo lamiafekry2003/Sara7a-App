@@ -165,61 +165,175 @@ async function verifyGoogleAccount({ idToken }) {
   return payload;
 }
 //////Login with gmail //////
-export const loginWithGmail = async (req, res, next) => {
-  // req.body token
-  const { idToken } = req.body;
-  const { email, email_verified, given_name, family_name, picture } =
-    await verifyGoogleAccount({ idToken });
-  // know role
-  let signature = await getSignature({
-    signatureLevel:
-      user.role !== roles.user ? signatureEnum.admin : signatureEnum.user,
-  });
-  // email_verifed
-  if (!email_verified)
-    return next(new Error("email not verified", { cause: 401 }));
-  // check email found or not
-  const user = await findOne({
-    model: userModel,
-    filter: { email },
-  });
-  if (user) {
-    if (user.provider === providers.google) {
-      // do Token
-      const newCredential = await getNewTokenCredentials(user)
+// export const loginWithGmail = async (req, res, next) => {
+//   // req.body token
+//   const { idToken } = req.body;
+//   const { email, email_verified, given_name, family_name, picture } =
+//     await verifyGoogleAccount({ idToken });
   
-      // if all success
-      return successResponse({
-        res,
-        statusCode: 200,
-        message: "user logged in successfully",
-        data: { newCredential },
-      });
+//   // know role
+//   let signature = await getSignature({
+//     signatureLevel:
+//       user.role !== roles?.user ? signatureEnum.admin : signatureEnum.user,
+//   });
+//   // email_verifed
+//   if (!email_verified)
+//     return next(new Error("email not verified", { cause: 401 }));
+
+//   const user = await findOne({
+//     model: userModel,
+//     filter: { email },
+//   });
+
+//   if (user) {
+//     if (user.provider === providers.google) {
+//       // do Token
+//       const newCredential = await getNewTokenCredentials(user)
+  
+//       // if all success
+//       return successResponse({
+//         res,
+//         statusCode: 200,
+//         message: "user logged in successfully",
+//         data: { newCredential },
+//       });
+//     }
+//   }
+//   const newUser = await create({
+//     model: userModel,
+//     data: [
+//       {
+//         firstName: given_name,
+//         lastName: family_name,
+//         email,
+//         // phoneNumber: encryptPhone,
+//         photo: picture,
+//         provider: providers.google,
+//         confirmEmail: Date.now(),
+//       },
+//     ],
+//   });
+//   const newCredential = await getNewTokenCredentials(newUser)
+//   // if all success
+//   return successResponse({
+//     res,
+//     statusCode: 201,
+//     message: "user created successfully",
+//     data: { newCredential },
+//   });
+// };
+// export const loginWithGmail = async (req, res, next) => {
+//   // req.body token
+//   const { idToken } = req.body;
+//   const { email, email_verified, given_name, family_name, picture } =
+//     await verifyGoogleAccount({ idToken });
+//   // know role
+//   let signature = await getSignature({
+//     signatureLevel:
+//       user.role !== roles.user ? signatureEnum.admin : signatureEnum.user,
+//   });
+//   // email_verifed
+//   if (!email_verified)
+//     return next(new Error("email not verified", { cause: 401 }));
+//   // check email found or not
+//   const user = await findOne({
+//     model: userModel,
+//     filter: { email },
+//   });
+//   if (user) {
+//     if (user.provider === providers.google) {
+//       // do Token
+//       const newCredential = await getNewTokenCredentials(user)
+  
+//       // if all success
+//       return successResponse({
+//         res,
+//         statusCode: 200,
+//         message: "user logged in successfully",
+//         data: { newCredential },
+//       });
+//     }
+//   }
+//   const newUser = await create({
+//     model: userModel,
+//     data: [
+//       {
+//         firstName: given_name,
+//         lastName: family_name,
+//         email,
+//         // phoneNumber: encryptPhone,
+//         photo: picture,
+//         provider: providers.google,
+//         confirmEmail: Date.now(),
+//       },
+//     ],
+//   });
+//   const newCredential = await getNewTokenCredentials(newUser)
+//   // if all success
+//   return successResponse({
+//     res,
+//     statusCode: 201,
+//     message: "user created successfully",
+//     data: { newCredential },
+//   });
+// };
+export const loginWithGmail = async (req, res, next) => {
+  try {
+    const { idToken } = req.body;
+    const { email, email_verified, given_name, family_name, picture } =
+      await verifyGoogleAccount({ idToken });
+
+    if (!email_verified)
+      return next(new Error("email not verified", { cause: 401 }));
+
+    // check if user exists
+    const user = await findOne({ model: userModel, filter: { email } });
+
+    // now we can safely use user
+    let signature = await getSignature({
+      signatureLevel: user?.role !== roles.user ? signatureEnum.admin : signatureEnum.user,
+    });
+
+    if (user) {
+      if (user.provider === providers.google) {
+        const newCredential = await getNewTokenCredentials(user);
+        return successResponse({
+          res,
+          statusCode: 200,
+          message: "user logged in successfully",
+          data: { newCredential },
+        });
+      }
     }
+
+    // if user doesn't exist → create new user
+    const newUser = await create({
+      model: userModel,
+      data: [
+        {
+          firstName: given_name,
+          lastName: family_name,
+          email,
+          photo: picture,
+          provider: providers.google,
+          confirmEmail: Date.now(),
+        },
+      ],
+    });
+
+    const newCredential = await getNewTokenCredentials(newUser);
+    return successResponse({
+      res,
+      statusCode: 201,
+      message: "user created successfully",
+      data: { newCredential },
+    });
+  } catch (err) {
+    console.error(err);
+    return next(new Error("something went error"));
   }
-  const newUser = await create({
-    model: userModel,
-    data: [
-      {
-        firstName: given_name,
-        lastName: family_name,
-        email,
-        // phoneNumber: encryptPhone,
-        photo: picture,
-        provider: providers.google,
-        confirmEmail: Date.now(),
-      },
-    ],
-  });
-  const newCredential = await getNewTokenCredentials(newUser)
-  // if all success
-  return successResponse({
-    res,
-    statusCode: 201,
-    message: "user created successfully",
-    data: { newCredential },
-  });
 };
+
 //////refresh token //////
 export const refreshToken = async (req, res, next) => {
   const user = req.user;
